@@ -19,6 +19,7 @@ import com.LunaGlaze.rainbowcompound.Projects.Items.Tools.ToolsItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Blocks.BlocksBlockRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Blocks.BlocksItemRegistry;
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllCreativeModeTabs;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.minecraft.client.KeyMapping;
@@ -94,7 +95,7 @@ public class RainbowCompound {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+        if (event.getTabKey() == AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey()) {
             event.accept(new ItemStack(AllItems.CHROMATIC_COMPOUND.get()));
             event.accept(new ItemStack(AllItems.SHADOW_STEEL.get()));
             event.accept(new ItemStack(AllItems.REFINED_RADIANCE.get()));

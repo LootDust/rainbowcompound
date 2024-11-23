@@ -10,10 +10,10 @@ public class RainbowApple extends Item {
     private static final FoodProperties food = (new FoodProperties.Builder())
             .saturationMod(1.5F)
             .nutrition(3)
-            .effect(() ->new MobEffectInstance(MobEffects.REGENERATION, 200, 1), 1.0F)
-            .effect(() ->new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 2400, 0), 1.0F)
-            .effect(() ->new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 4000, 0), 1.0F)
-            .effect(() ->new MobEffectInstance(MobEffects.ABSORPTION, 2400, 2), 1.0F)
+            .effect(() ->new MobEffectInstance(MobEffects.REGENERATION, 400, 2), 1.0F)
+            .effect(() ->new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 2400, 2), 1.0F)
+            .effect(() ->new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1.0F)
+            .effect(() ->new MobEffectInstance(MobEffects.ABSORPTION, 7200, 2), 1.0F)
             .alwaysEat()
             .build();
     public RainbowApple() {
