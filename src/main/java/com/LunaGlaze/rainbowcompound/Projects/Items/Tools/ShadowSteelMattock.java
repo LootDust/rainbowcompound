@@ -43,7 +43,8 @@ public class ShadowSteelMattock extends HoeItem {
 
     @SuppressWarnings("removal")
     public InteractionResult useOn(UseOnContext pContext) {
-        // 也许是要用onToolUse方法，但是那个方法返回值不是int，先注释掉看看
+        // 24.11.22 也许是要用onToolUse方法，但是那个方法返回值不是int，先注释掉看看
+        // 24.11.23 事实证明注释掉了似乎也不影响运行，管它呢，能跑就完事了
         // int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(pContext);
         // if (hook != 0) return hook > 0 ? InteractionResult.SUCCESS : InteractionResult.FAIL;
         Level level = pContext.getLevel();

@@ -3,6 +3,7 @@ package com.LunaGlaze.rainbowcompound.Core.Tab;
 import com.LunaGlaze.rainbowcompound.Linkage.createaddition.CCAItemRegistry;
 import com.LunaGlaze.rainbowcompound.Linkage.farmersdelight.farmersdelightItemRegistry;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
+import com.LunaGlaze.rainbowcompound.Projects.Blocks.BlocksItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.ArmorsItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.CuriosElytraItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.ElytraItemRegistry;
@@ -92,6 +93,8 @@ public class RainbowcompoundTab {
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowchestplate.get()));
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowleggings.get()));
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowboots.get()));
+                // Blocks
+                output.accept(new ItemStack((ItemLike)BlocksItemRegistry.refinedradianceneonitem.get()));
                 // Farmers' Delight Linkage
                 if (isFarmersDelightLoaded) {
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.obsidianiteknife.get()));
