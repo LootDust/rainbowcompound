@@ -29,7 +29,7 @@ public class RainbowcompoundTab {
     public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, LunaUtils.MOD_ID);
     public static RegistryObject<CreativeModeTab> MOD_TAB = REGISTRY.register("rainbowcompound_group", () -> CreativeModeTab.builder()
             .icon(() -> (new ItemStack((ItemLike) ItemsItemRegistry.rainbowcompound.get())))
-            .title(Component.translatable("tab.un_combat"))
+            .title(Component.translatable("itemGroup.rainbowcompound_group"))
             .displayItems((parameters, output) -> {
                 // Basics
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.rainbowcompound.get()));
