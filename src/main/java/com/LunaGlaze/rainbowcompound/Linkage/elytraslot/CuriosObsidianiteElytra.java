@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Linkage.elytraslot;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.simibubi.create.AllItems;
@@ -23,7 +23,7 @@ public class CuriosObsidianiteElytra extends CuriosModElytraItem implements ICur
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public CuriosObsidianiteElytra() {
-        super(new Item.Properties().tab(CreativeModeTabGroup.group).fireResistant().durability(864).rarity(Rarity.UNCOMMON));
+        super(new Item.Properties().tab(RainbowcompoundTab.group).fireResistant().durability(864).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();

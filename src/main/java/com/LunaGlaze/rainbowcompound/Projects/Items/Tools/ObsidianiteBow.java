@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -17,7 +17,7 @@ public class ObsidianiteBow extends BowItem {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public ObsidianiteBow() {
-        super(new Properties().tab(CreativeModeTabGroup.group).fireResistant().durability(2048));
+        super(new Properties().tab(RainbowcompoundTab.group).fireResistant().durability(2048));
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", (double) attackDamage, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();

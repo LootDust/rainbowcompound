@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Linkage.farmersdelight;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
@@ -24,7 +24,7 @@ import java.util.List;
 
 public class RefinedRadianceKnife extends KnifeItem {
     public RefinedRadianceKnife() {
-        super(ToolTiers.RefinedRadiance,0.5f,-2f,new Properties().tab(CreativeModeTabGroup.group).rarity(Rarity.UNCOMMON));
+        super(ToolTiers.RefinedRadiance,0.5f,-2f,new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
     }
 
     @OnlyIn(Dist.CLIENT)

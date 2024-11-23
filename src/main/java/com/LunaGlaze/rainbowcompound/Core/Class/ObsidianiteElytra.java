@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Core.Class;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.simibubi.create.AllItems;
@@ -19,7 +19,7 @@ public class ObsidianiteElytra extends ModElytraItem implements Wearable {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public ObsidianiteElytra() {
-        super(new Item.Properties().tab(CreativeModeTabGroup.group).fireResistant().durability(864).rarity(Rarity.UNCOMMON));
+        super(new Item.Properties().tab(RainbowcompoundTab.group).fireResistant().durability(864).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();

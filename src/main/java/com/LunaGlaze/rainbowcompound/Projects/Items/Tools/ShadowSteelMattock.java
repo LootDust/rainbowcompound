@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import com.mojang.datafixers.util.Pair;
@@ -40,7 +40,7 @@ import java.util.function.Predicate;
 public class ShadowSteelMattock extends HoeItem {
 
     public ShadowSteelMattock() {
-        super(ToolTiers.Shadowsteeltool, 1, -3f, new Properties().tab(CreativeModeTabGroup.group).rarity(Rarity.UNCOMMON));
+        super(ToolTiers.Shadowsteeltool, 1, -3f, new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
     }
 
     @SuppressWarnings("removal")

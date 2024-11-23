@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
@@ -25,7 +25,7 @@ import java.util.List;
 
 public class ShadowSteelAxe extends AxeItem {
     public ShadowSteelAxe() {
-        super(ToolTiers.Shadowsteeltool, 3, -1.5f,new Properties().tab(CreativeModeTabGroup.group).rarity(Rarity.UNCOMMON));
+        super(ToolTiers.Shadowsteeltool, 3, -1.5f,new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
     }
 
     @OnlyIn(Dist.CLIENT)

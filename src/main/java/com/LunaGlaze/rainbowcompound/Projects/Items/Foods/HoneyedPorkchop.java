@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Foods;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
@@ -11,6 +11,6 @@ public class HoneyedPorkchop extends Item {
             .build();
 
     public HoneyedPorkchop() {
-        super(new Properties().food(food).tab(CreativeModeTabGroup.group));
+        super(new Properties().food(food).tab(RainbowcompoundTab.group));
     }
 }

@@ -1,18 +1,12 @@
 package com.LunaGlaze.rainbowcompound.Linkage.farmersdelight;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.stats.Stats;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.Level;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -27,7 +21,7 @@ public class GoldenAppleStew extends ConsumableItem {
             .alwaysEat()
             .build();
     public GoldenAppleStew() {
-        super(new Properties().food(food).tab(CreativeModeTabGroup.group).rarity(Rarity.RARE),true);
+        super(new Properties().food(food).tab(RainbowcompoundTab.group).rarity(Rarity.RARE),true);
     }
 
     @Override

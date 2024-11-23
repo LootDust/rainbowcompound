@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[40,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[47,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license="All rights reserved"
 # A URL to refer people to when problems occur with this mod
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
@@ -22,33 +22,39 @@ There is no mandatory theme for this mod, and I welcome the authors of various i
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.rainbowcompound]] #optional
-# the modid of the dependency
-modId="forge" #mandatory
-# Does this dependency have to exist - if not, ordering below must be specified
-mandatory=true #mandatory
-# The version range of the dependency
-versionRange="[40,)" #mandatory
-# An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
-ordering="NONE"
-# Side this dependency is applied on - BOTH, CLIENT or SERVER
-side="BOTH"
-# Here's another dependency
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[47,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+    # Here's another dependency
 [[dependencies.rainbowcompound]]
-modId="minecraft"
-mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[1.18.2,1.19)"
-ordering="NONE"
-side="BOTH"
+    modId="minecraft"
+    mandatory=true
+    # This version range declares a minimum of the current minecraft version up to but not including the next major version
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
 [[dependencies.rainbowcompound]]
     modId="create"
     mandatory=true
-    versionRange="[0.5.1.b,)"
+    versionRange="[0.5.1.h,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.rainbowcompound]]
     modId="curios"
     mandatory=true
-    versionRange="[1.18.2-5.0.6.0,)"
+    versionRange="[5.10.0+1.20.1,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.rainbowcompound]]
+    modId="caelus"
+    mandatory=true
+    versionRange="[3.1.0+1.20.1,)"
     ordering="NONE"
     side="BOTH"

@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Blocks;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Projects.Blocks.EncasedBlock.ModSpriteShifts;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.simibubi.create.foundation.data.BuilderTransformers;
@@ -13,7 +13,7 @@ import static com.simibubi.create.foundation.data.CreateRegistrate.connectedText
 public class BlockRegistryTterrag {
 
     static {
-        REGISTRATE.creativeModeTab(() -> CreativeModeTabGroup.group);
+        REGISTRATE.creativeModeTab(() -> RainbowcompoundTab.group);
     }
 
     public static final BlockEntry<OverchargedCasing>

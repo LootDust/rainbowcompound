@@ -1,10 +1,8 @@
 package com.LunaGlaze.rainbowcompound.Linkage.elytraslot;
 
-import com.LunaGlaze.rainbowcompound.Core.Class.DynamicElytra;
-import com.LunaGlaze.rainbowcompound.Core.Class.ModElytraItem;
 import com.LunaGlaze.rainbowcompound.Core.Date.KeyBoard.ElytraFlyKey;
 import com.LunaGlaze.rainbowcompound.Core.Date.LunaConfig;
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.CuriosElytraItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.ItemsItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
@@ -37,7 +35,7 @@ public class CuriosRainbowElytra extends CuriosModElytraItem implements ICurio {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public CuriosRainbowElytra() {
-        super(new Properties().tab(CreativeModeTabGroup.group).fireResistant().durability(1632).rarity(Rarity.UNCOMMON));
+        super(new Properties().tab(RainbowcompoundTab.group).fireResistant().durability(1632).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();

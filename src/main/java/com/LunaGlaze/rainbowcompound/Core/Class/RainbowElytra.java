@@ -2,7 +2,7 @@ package com.LunaGlaze.rainbowcompound.Core.Class;
 
 import com.LunaGlaze.rainbowcompound.Core.Date.KeyBoard.ElytraFlyKey;
 import com.LunaGlaze.rainbowcompound.Core.Date.LunaConfig;
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.ItemsItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -30,7 +30,7 @@ public class RainbowElytra extends ModElytraItem implements Wearable {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public RainbowElytra() {
-        super(new Properties().tab(CreativeModeTabGroup.group).fireResistant().durability(1632).rarity(Rarity.UNCOMMON));
+        super(new Properties().tab(RainbowcompoundTab.group).fireResistant().durability(1632).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();

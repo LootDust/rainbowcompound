@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Linkage.farmersdelight;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -36,7 +36,7 @@ public class ShadowSteelTea extends DrinkableItem {
             .build();
 
     public ShadowSteelTea(){
-        super(new Properties().food(food).tab(CreativeModeTabGroup.group).rarity(Rarity.UNCOMMON));
+        super(new Properties().food(food).tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
     }
 
     @Override

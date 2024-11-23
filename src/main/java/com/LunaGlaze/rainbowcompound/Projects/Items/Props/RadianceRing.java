@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Props;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import com.LunaGlaze.rainbowcompound.Projects.Effect.EffectRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.ArmorsItemRegistry;
@@ -31,7 +31,7 @@ import java.util.UUID;
 
 public class RadianceRing extends Item implements ICurioItem {
     public RadianceRing() {
-        super(new Properties().tab(CreativeModeTabGroup.group).rarity(Rarity.UNCOMMON).stacksTo(1));
+        super(new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON).stacksTo(1));
     }
 
     @Override

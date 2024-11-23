@@ -1,7 +1,7 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,7 +13,7 @@ import net.minecraft.world.item.Rarity;
 
 public class RainbowHoe extends HoeItem {
     public RainbowHoe() {
-        super(ToolTiers.RAINBOW, -4, -3f, new Properties().tab(CreativeModeTabGroup.group).fireResistant().rarity(Rarity.UNCOMMON));
+        super(ToolTiers.RAINBOW, -4, -3f, new Properties().tab(RainbowcompoundTab.group).fireResistant().rarity(Rarity.UNCOMMON));
     }
 
     @Override

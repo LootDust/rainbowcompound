@@ -1,6 +1,6 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Props;
 
-import com.LunaGlaze.rainbowcompound.Core.Group.CreativeModeTabGroup;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -27,7 +27,7 @@ import java.util.Objects;
 
 public class HomeMagicMirror extends Item {
     public HomeMagicMirror() {
-        super(new Properties().tab(CreativeModeTabGroup.group).rarity(Rarity.UNCOMMON)
+        super(new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON)
                 .stacksTo( 1 ).durability(16) );
     }
 
