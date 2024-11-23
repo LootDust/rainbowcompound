@@ -3,6 +3,7 @@ package com.LunaGlaze.rainbowcompound;
 import com.LunaGlaze.rainbowcompound.Core.Curios.Curios;
 import com.LunaGlaze.rainbowcompound.Core.Date.KeyBoard.ElytraFlyKey;
 import com.LunaGlaze.rainbowcompound.Core.Date.LunaConfig;
+import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Linkage.createaddition.CCAItemRegistry;
 import com.LunaGlaze.rainbowcompound.Linkage.elytraslot.CuriosElytra;
 import com.LunaGlaze.rainbowcompound.Linkage.farmersdelight.farmersdelightItemRegistry;
@@ -74,6 +75,8 @@ public class RainbowCompound {
         if(isCreateCraftAddLoaded) {
             CCAItemRegistry.ITEMS.register(registerEventBus);
         }
+
+        RainbowcompoundTab.REGISTRY.register(registerEventBus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, LunaConfig.COMMON_CONFIG);
 

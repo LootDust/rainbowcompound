@@ -4,6 +4,8 @@ import com.LunaGlaze.rainbowcompound.Linkage.createaddition.CCAItemRegistry;
 import com.LunaGlaze.rainbowcompound.Linkage.farmersdelight.farmersdelightItemRegistry;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.ArmorsItemRegistry;
+import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.CuriosElytraItemRegistry;
+import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.ElytraItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.ItemsItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.RainbowCompound;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Foods.FoodsItemRegistry;
@@ -93,12 +95,38 @@ public class RainbowcompoundTab {
                 // Farmers' Delight Linkage
                 if (isFarmersDelightLoaded) {
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.obsidianiteknife.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.shadowsteelknife.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.refinedradianceknife.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.rainbowknife.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.shadowsteeltea.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.refinedradiancetea.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.goldenapplestew.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.enchantedgoldenapplestew.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.rainbowapplestew.get()));
                 }
                 // Curios Linkage
                 if (isCuriousElytraLoaded) {
-
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.obsidianiteelytra.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_rainbow.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_feather.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_fire.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_ice.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_radiance.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_slime.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_ender.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_66ccff.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_flandre.get()));
                 } else {
-
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.obsidianiteelytra.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_rainbow.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_feather.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_fire.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_ice.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_radiance.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_slime.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_ender.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_66ccff.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_flandre.get()));
                 }
                 // Create Additions Linkage
                 if (isCreateCraftAddLoaded) {
