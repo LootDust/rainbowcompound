@@ -1,10 +1,8 @@
 package com.LunaGlaze.rainbowcompound.Linkage.farmersdelight;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -36,16 +34,13 @@ public class RefinedRadianceTea extends DrinkableItem {
             .build();
 
     public RefinedRadianceTea(){
-        super(new Properties().food(food).tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
+        super(new Properties().food(food).rarity(Rarity.UNCOMMON));
     }
 
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
-        return new ItemStack(Items.GLASS_BOTTLE);
-    }
+    public ItemStack getContainerItem() { return new ItemStack(Items.GLASS_BOTTLE); }
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced){
-            tooltip.add(new TranslatableComponent(LunaUtils.MOD_ID + ".tooltip.chromatictea", new Object[0]).withStyle(ChatFormatting.DARK_AQUA));
+            tooltip.add(Component.translatable(LunaUtils.MOD_ID + ".tooltip.chromatictea", new Object[0]).withStyle(ChatFormatting.DARK_AQUA));
     }
 }

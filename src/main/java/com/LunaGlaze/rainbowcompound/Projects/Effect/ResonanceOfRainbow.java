@@ -14,8 +14,8 @@ public class ResonanceOfRainbow extends MobEffect {
 
     public ResonanceOfRainbow(MobEffectCategory pCategory, int pColor) {
         super(pCategory,pColor);
-        this.addAttributeModifier(ForgeMod.REACH_DISTANCE.get(), String.valueOf(uuid), (double)0.25F, AttributeModifier.Operation.ADDITION)
-                .addAttributeModifier(ForgeMod.ATTACK_RANGE.get(), String.valueOf(uuid), (double)0.25F, AttributeModifier.Operation.ADDITION)
+        this.addAttributeModifier(ForgeMod.BLOCK_REACH.get(), String.valueOf(uuid), (double)0.25F, AttributeModifier.Operation.ADDITION)
+                .addAttributeModifier(ForgeMod.ENTITY_REACH.get(), String.valueOf(uuid), (double)0.25F, AttributeModifier.Operation.ADDITION)
                 .addAttributeModifier(Attributes.MAX_HEALTH, String.valueOf(uuid), 5.0D, AttributeModifier.Operation.ADDITION)
                 .addAttributeModifier(Attributes.ARMOR_TOUGHNESS, String.valueOf(uuid), 1, AttributeModifier.Operation.ADDITION)
                 .addAttributeModifier(Attributes.MOVEMENT_SPEED, String.valueOf(uuid), 0.05, AttributeModifier.Operation.ADDITION);

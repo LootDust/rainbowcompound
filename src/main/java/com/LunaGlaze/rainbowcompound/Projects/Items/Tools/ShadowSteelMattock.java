@@ -1,6 +1,5 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import com.mojang.datafixers.util.Pair;
@@ -9,7 +8,6 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -40,13 +38,14 @@ import java.util.function.Predicate;
 public class ShadowSteelMattock extends HoeItem {
 
     public ShadowSteelMattock() {
-        super(ToolTiers.Shadowsteeltool, 1, -3f, new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
+        super(ToolTiers.Shadowsteeltool, 1, -3f, new Properties().rarity(Rarity.UNCOMMON));
     }
 
     @SuppressWarnings("removal")
     public InteractionResult useOn(UseOnContext pContext) {
-        int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(pContext);
-        if (hook != 0) return hook > 0 ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+        // 也许是要用onToolUse方法，但是那个方法返回值不是int，先注释掉看看
+        // int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(pContext);
+        // if (hook != 0) return hook > 0 ? InteractionResult.SUCCESS : InteractionResult.FAIL;
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         Player player = pContext.getPlayer();
@@ -223,14 +222,14 @@ public class ShadowSteelMattock extends HoeItem {
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced){
-        tooltip.add(new TranslatableComponent(LunaUtils.MOD_ID + ".tooltip.shadowstelltoll", new Object[0]).withStyle(ChatFormatting.DARK_PURPLE));
+        tooltip.add(Component.translatable(LunaUtils.MOD_ID + ".tooltip.shadowstelltoll", new Object[0]).withStyle(ChatFormatting.DARK_PURPLE));
     }
 
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(2, pAttacker, (p_41007_) -> {
             p_41007_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
         });
-        Level level = pAttacker.getLevel();
+        Level level = pAttacker.level();
         if (pAttacker instanceof Player){
             ExperienceOrb exporb = new ExperienceOrb(level,pAttacker.getX(),pAttacker.getY(),pAttacker.getZ(),1);
             level.addFreshEntity(exporb);

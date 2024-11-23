@@ -125,6 +125,9 @@ repositories {
     maven {
         name = 'tterrag maven'
         url = 'https://maven.tterrag.com/'
+        content {
+            includeGroup "com.tterrag.registrate"
+        }
     }
     maven {
         // Location of the maven that hosts JEI files (and TiC)
@@ -139,6 +142,10 @@ repositories {
     maven {
         //location of the maven for curios api
         url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        // Location of the maven for create
+        url = "https://modmaven.dev/"
     }
     maven {
         url = "https://www.cursemaven.com"
@@ -165,17 +172,17 @@ dependencies {
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}")
     compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
-    compileOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}:api")
+    compileOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}")
 
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${curios_minecraft_version}:api")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${curios_minecraft_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
 
     implementation fg.deobf("curse.maven:farmers-delight-398521:4525645")
     implementation fg.deobf("curse.maven:createaddition-439890:4605624")
 
+    compileOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
-    compileOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
 
     implementation fg.deobf("curse.maven:elytra-slot-317716:5583756")
 

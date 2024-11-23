@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -12,12 +13,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ForgeMod;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import static net.minecraftforge.common.ToolActions.AXE_SCRAPE;
 
@@ -38,8 +41,8 @@ public class ScythesItem extends SwordItem {
         } else if (pState.is(Blocks.COBWEB)) {
             return 15.0F;
         } else {
-            Material material = pState.getMaterial();
-            return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && !pState.is(BlockTags.LEAVES) && material != Material.VEGETABLE ? 1.0F : 1.5F;
+            List<TagKey<Block>> pBlockTags = pState.getTags().toList();
+            return !pBlockTags.contains(BlockTags.REPLACEABLE_BY_TREES) && !pBlockTags.contains(BlockTags.FLOWERS) && !pState.is(BlockTags.LEAVES) && !pBlockTags.contains(BlockTags.CROPS) ? 1.0F : 1.5F;
         }
     }
 
@@ -67,8 +70,8 @@ public class ScythesItem extends SwordItem {
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> attributeBuilder = ImmutableMultimap.builder();
         attributeBuilder.putAll(super.getDefaultAttributeModifiers(slot));
-        attributeBuilder.put(ForgeMod.REACH_DISTANCE.get(), new AttributeModifier(GIANT_REACH_MODIFIER, "Reach modifier", 1, AttributeModifier.Operation.ADDITION));
-        attributeBuilder.put(ForgeMod.ATTACK_RANGE.get(), new AttributeModifier(GIANT_RANGE_MODIFIER, "Range modifier", 1, AttributeModifier.Operation.ADDITION));
+        attributeBuilder.put(ForgeMod.BLOCK_REACH.get(), new AttributeModifier(GIANT_REACH_MODIFIER, "Reach modifier", 1, AttributeModifier.Operation.ADDITION));
+        attributeBuilder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(GIANT_RANGE_MODIFIER, "Range modifier", 1, AttributeModifier.Operation.ADDITION));
         return slot == EquipmentSlot.MAINHAND ? attributeBuilder.build() : super.getDefaultAttributeModifiers(slot);
     }
     

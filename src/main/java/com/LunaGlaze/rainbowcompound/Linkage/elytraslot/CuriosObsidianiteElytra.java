@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import java.util.UUID;
@@ -23,7 +24,7 @@ public class CuriosObsidianiteElytra extends CuriosModElytraItem implements ICur
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public CuriosObsidianiteElytra() {
-        super(new Item.Properties().tab(RainbowcompoundTab.group).fireResistant().durability(864).rarity(Rarity.UNCOMMON));
+        super(new Item.Properties().fireResistant().durability(864).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();
@@ -47,13 +48,13 @@ public class CuriosObsidianiteElytra extends CuriosModElytraItem implements ICur
 
     @Override
     public boolean elytraFlightTick(ItemStack stack, net.minecraft.world.entity.LivingEntity entity, int flightTicks) {
-        if (!entity.level.isClientSide) {
+        if (!entity.level().isClientSide) {
             int nextFlightTick = flightTicks + 1;
             if (nextFlightTick % 10 == 0) {
                 if ((flightTicks) % 25 == 0) {
                     stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
                 }
-                entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_FREE_FALL);
+                entity.gameEvent(GameEvent.ELYTRA_GLIDE);
             }
         }
         return true;

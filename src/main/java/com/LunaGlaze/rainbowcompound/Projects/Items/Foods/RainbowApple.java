@@ -1,6 +1,5 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Foods;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -18,6 +17,6 @@ public class RainbowApple extends Item {
             .alwaysEat()
             .build();
     public RainbowApple() {
-        super(new Properties().food(food).tab(RainbowcompoundTab.group).rarity(Rarity.EPIC));
+        super(new Properties().food(food).rarity(Rarity.EPIC));
     }
 }

@@ -1,6 +1,5 @@
 package com.LunaGlaze.rainbowcompound.Linkage.farmersdelight;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -21,11 +20,10 @@ public class GoldenAppleStew extends ConsumableItem {
             .alwaysEat()
             .build();
     public GoldenAppleStew() {
-        super(new Properties().food(food).tab(RainbowcompoundTab.group).rarity(Rarity.RARE),true);
+        super(new Properties().food(food).rarity(Rarity.RARE),true);
     }
 
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
+    public ItemStack getContainerItem() {
         return new ItemStack(Items.BOWL);
     }
 }

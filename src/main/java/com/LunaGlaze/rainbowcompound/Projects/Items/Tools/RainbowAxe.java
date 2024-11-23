@@ -1,6 +1,5 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -12,7 +11,7 @@ import net.minecraft.world.item.Rarity;
 
 public class RainbowAxe extends AxeItem {
     public RainbowAxe() {
-        super(ToolTiers.RAINBOW, 5, -3.1f, new Properties().tab(RainbowcompoundTab.group).fireResistant().rarity(Rarity.UNCOMMON));
+        super(ToolTiers.RAINBOW, 5, -3.1f, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
     }
 
     @Override

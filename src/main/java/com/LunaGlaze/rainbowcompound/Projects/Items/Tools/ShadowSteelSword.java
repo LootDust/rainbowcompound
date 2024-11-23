@@ -1,12 +1,10 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,12 +23,12 @@ import java.util.List;
 
 public class ShadowSteelSword extends SwordItem {
     public ShadowSteelSword() {
-        super(ToolTiers.Shadowsteel,3,-2f,new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
+        super(ToolTiers.Shadowsteel,3,-2f,new Properties().rarity(Rarity.UNCOMMON));
     }
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced){
-        tooltip.add(new TranslatableComponent(LunaUtils.MOD_ID + ".tooltip.shadowstelltoll", new Object[0]).withStyle(ChatFormatting.DARK_PURPLE));
+        tooltip.add(Component.translatable(LunaUtils.MOD_ID + ".tooltip.shadowstelltoll", new Object[0]).withStyle(ChatFormatting.DARK_PURPLE));
     }
 
     @Override
@@ -38,7 +36,7 @@ public class ShadowSteelSword extends SwordItem {
         pStack.hurtAndBreak(1, pAttacker, (p_43296_) -> {
             p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
         });
-        Level level = pAttacker.getLevel();
+        Level level = pAttacker.level();
         if (pAttacker instanceof Player){
             ExperienceOrb exporb = new ExperienceOrb(level,pAttacker.getX(),pAttacker.getY(),pAttacker.getZ(),1);
             level.addFreshEntity(exporb);

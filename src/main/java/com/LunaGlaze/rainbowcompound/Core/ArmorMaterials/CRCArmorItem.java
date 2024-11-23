@@ -13,7 +13,7 @@ import static net.minecraft.world.entity.EquipmentSlot.LEGS;
 
 public class CRCArmorItem extends ArmorItem {
 
-    public CRCArmorItem(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
+    public CRCArmorItem(ArmorMaterial pMaterial, Type pSlot, Properties pProperties) {
         super(pMaterial, pSlot, pProperties.stacksTo(1));
     }
 

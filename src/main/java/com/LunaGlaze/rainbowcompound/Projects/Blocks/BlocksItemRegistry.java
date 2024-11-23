@@ -11,5 +11,5 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlocksItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LunaUtils.MOD_ID);
     public static final RegistryObject<Item> refinedradianceneonitem = ITEMS.register("refined_radiance_neon",() ->
-            new BlockItem(BlocksBlockRegistry.refinedradianceneon.get(),new Item.Properties().tab(RainbowcompoundTab.group)));
+            new BlockItem(BlocksBlockRegistry.refinedradianceneon.get(),new Item.Properties()));
 }

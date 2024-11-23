@@ -23,11 +23,10 @@ public class RainbowAppleStew extends ConsumableItem {
             .alwaysEat()
             .build();
     public RainbowAppleStew() {
-        super(new Properties().food(food).tab(RainbowcompoundTab.group).rarity(Rarity.EPIC),true);
+        super(new Properties().food(food).rarity(Rarity.EPIC),true);
     }
 
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
+    public ItemStack getContainerItem() {
         return new ItemStack(Items.BOWL);
     }
 }

@@ -2,7 +2,6 @@ package com.LunaGlaze.rainbowcompound.Linkage.elytraslot;
 
 import com.LunaGlaze.rainbowcompound.Core.Date.KeyBoard.ElytraFlyKey;
 import com.LunaGlaze.rainbowcompound.Core.Date.LunaConfig;
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.CuriosElytraItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.ItemsItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
@@ -17,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -38,7 +38,7 @@ public class CuriosDynamicElytra extends CuriosModElytraItem implements ICurio {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public CuriosDynamicElytra() {
-        super(new Properties().tab(RainbowcompoundTab.group).fireResistant().durability(1152).rarity(Rarity.UNCOMMON));
+        super(new Properties().fireResistant().durability(1152).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();
@@ -113,13 +113,13 @@ public class CuriosDynamicElytra extends CuriosModElytraItem implements ICurio {
 
     @Override
     public boolean elytraFlightTick(ItemStack stack, net.minecraft.world.entity.LivingEntity entity, int flightTicks) {
-        if(!entity.level.isClientSide) {
+        if(!entity.level().isClientSide) {
             int nextFlightTick = flightTicks + 1;
             if (nextFlightTick % 10 == 0) {
                 if ((flightTicks) % 20 == 0 && ElytraFlyKey.ELYTRA_FLY_KEY.isPressed()) {
                     stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
                 }
-                entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_FREE_FALL);
+                entity.gameEvent(GameEvent.ELYTRA_GLIDE);
             }
         }
         return true;

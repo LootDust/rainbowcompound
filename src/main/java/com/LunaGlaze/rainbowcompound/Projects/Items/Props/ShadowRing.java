@@ -1,13 +1,11 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Props;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import com.LunaGlaze.rainbowcompound.Projects.Effect.EffectRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Armors.ArmorsItemRegistry;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -32,7 +30,7 @@ import java.util.UUID;
 public class ShadowRing extends Item implements ICurioItem {
 
     public ShadowRing() {
-        super(new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON).stacksTo(1));
+        super(new Properties().rarity(Rarity.UNCOMMON).stacksTo(1));
     }
 
     @Override
@@ -48,7 +46,7 @@ public class ShadowRing extends Item implements ICurioItem {
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
         int i = RainbowKit(slotContext);
-        if(i>0 && livingEntity.getLevel().isNight()){
+        if(i>0 && livingEntity.level().isNight()){
             livingEntity.addEffect(new MobEffectInstance(EffectRegistry.resonance_rainbow.get(),20,i-1));
         }else removeAttributeModifiers(livingEntity);
     }
@@ -83,7 +81,7 @@ public class ShadowRing extends Item implements ICurioItem {
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced){
-        tooltip.add(new TranslatableComponent(LunaUtils.MOD_ID + ".tooltip.shadowring", new Object[0]).withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable(LunaUtils.MOD_ID + ".tooltip.shadowring", new Object[0]).withStyle(ChatFormatting.BLUE));
     }
 
 }

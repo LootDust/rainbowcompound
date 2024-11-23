@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 
 import javax.annotation.Nullable;
 
-public class ModElytraItem extends ElytraItem implements Wearable {
+public class ModElytraItem extends ElytraItem implements Equipable {
     public ModElytraItem(Item.Properties pProperties) {
         super(pProperties);
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);

@@ -1,11 +1,9 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Props;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -27,7 +25,7 @@ import java.util.Objects;
 
 public class HomeMagicMirror extends Item {
     public HomeMagicMirror() {
-        super(new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON)
+        super(new Properties().rarity(Rarity.UNCOMMON)
                 .stacksTo( 1 ).durability(16) );
     }
 
@@ -69,7 +67,7 @@ public class HomeMagicMirror extends Item {
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced){
-        tooltip.add(new TranslatableComponent(LunaUtils.MOD_ID + ".tooltip.homemagicmirror", new Object[0]).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(LunaUtils.MOD_ID + ".tooltip.homemagicmirror", new Object[0]).withStyle(ChatFormatting.GRAY));
     }
 
 }

@@ -1,12 +1,10 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
 import com.LunaGlaze.rainbowcompound.Core.Class.ScythesItem;
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Core.Tiers.ToolTiers;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -24,12 +22,12 @@ import java.util.List;
 public class RefinedRadianceScythes extends ScythesItem {
 
     public RefinedRadianceScythes() {
-        super(ToolTiers.RefinedRadiance,3,-2.2f,new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
+        super(ToolTiers.RefinedRadiance,3,-2.2f,new Properties().rarity(Rarity.UNCOMMON));
     }
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced){
-        tooltip.add(new TranslatableComponent(LunaUtils.MOD_ID + ".tooltip.refinedradiancetool", new Object[0]).withStyle(ChatFormatting.AQUA));
+        tooltip.add(Component.translatable(LunaUtils.MOD_ID + ".tooltip.refinedradiancetool", new Object[0]).withStyle(ChatFormatting.AQUA));
     }
 
     @Override

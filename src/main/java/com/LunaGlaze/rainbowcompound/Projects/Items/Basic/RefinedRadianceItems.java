@@ -8,13 +8,6 @@ import net.minecraft.world.item.Rarity;
 
 public class RefinedRadianceItems extends RefinedRadianceItem {
     public RefinedRadianceItems() {
-        super(new Properties().tab(RainbowcompoundTab.group).rarity(Rarity.UNCOMMON));
-    }
-
-    @Override
-    public void fillItemCategory(RainbowcompoundTab pCategory, NonNullList<ItemStack> pItems) {
-        if (this.allowdedIn(pCategory)) {
-            pItems.add(new ItemStack(this));
-        }
+        super(new Properties().rarity(Rarity.UNCOMMON));
     }
 }

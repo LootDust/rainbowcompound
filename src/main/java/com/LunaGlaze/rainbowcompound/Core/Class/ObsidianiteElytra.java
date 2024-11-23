@@ -1,6 +1,5 @@
 package com.LunaGlaze.rainbowcompound.Core.Class;
 
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.simibubi.create.AllItems;
@@ -10,16 +9,17 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
 
 import java.util.UUID;
 
-public class ObsidianiteElytra extends ModElytraItem implements Wearable {
+public class ObsidianiteElytra extends ModElytraItem implements Equipable {
 
     private static final UUID uuid = UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D");
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public ObsidianiteElytra() {
-        super(new Item.Properties().tab(RainbowcompoundTab.group).fireResistant().durability(864).rarity(Rarity.UNCOMMON));
+        super(new Item.Properties().fireResistant().durability(864).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();
@@ -43,13 +43,13 @@ public class ObsidianiteElytra extends ModElytraItem implements Wearable {
 
     @Override
     public boolean elytraFlightTick(ItemStack stack, net.minecraft.world.entity.LivingEntity entity, int flightTicks) {
-        if (!entity.level.isClientSide) {
+        if (!entity.level().isClientSide) {
             int nextFlightTick = flightTicks + 1;
             if (nextFlightTick % 10 == 0) {
                 if ((flightTicks) % 25 == 0) {
                     stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
                 }
-                entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_FREE_FALL);
+                entity.gameEvent(GameEvent.ELYTRA_GLIDE);
             }
         }
         return true;

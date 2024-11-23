@@ -2,7 +2,6 @@ package com.LunaGlaze.rainbowcompound.Core.Class;
 
 import com.LunaGlaze.rainbowcompound.Core.Date.KeyBoard.ElytraFlyKey;
 import com.LunaGlaze.rainbowcompound.Core.Date.LunaConfig;
-import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
 import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.ItemsItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -13,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -24,13 +24,13 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.UUID;
 
 @Mod.EventBusSubscriber
-public class DynamicElytra extends ModElytraItem implements Wearable {
+public class DynamicElytra extends ModElytraItem implements Equipable {
 
     private static final UUID uuid = UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D");
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public DynamicElytra() {
-        super(new Properties().tab(RainbowcompoundTab.group).fireResistant().durability(1152).rarity(Rarity.UNCOMMON));
+        super(new Properties().fireResistant().durability(1152).rarity(Rarity.UNCOMMON));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         int defense = this.getDefense();
@@ -88,13 +88,13 @@ public class DynamicElytra extends ModElytraItem implements Wearable {
 
     @Override
     public boolean elytraFlightTick(ItemStack stack, net.minecraft.world.entity.LivingEntity entity, int flightTicks) {
-        if(!entity.level.isClientSide) {
+        if(!entity.level().isClientSide) {
             int nextFlightTick = flightTicks + 1;
             if (nextFlightTick % 10 == 0) {
                 if ((flightTicks) % 20 == 0 && ElytraFlyKey.ELYTRA_FLY_KEY.isPressed()) {
                     stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
                 }
-                entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_FREE_FALL);
+                entity.gameEvent(GameEvent.ELYTRA_GLIDE);
             }
         }
         return true;

@@ -5,7 +5,7 @@ import com.LunaGlaze.rainbowcompound.Projects.Items.Basic.ItemsItemRegistry;
 import com.google.common.base.Suppliers;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -44,13 +44,13 @@ public enum CRCArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return MAX_DAMAGE_ARRAY[slot.getIndex()] * this.maxDamageFactor;
+    public int getDurabilityForType(Type type) {
+        return MAX_DAMAGE_ARRAY[type.getSlot().getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.damageReductionAmountArray[slot.getIndex()];
+    public int getDefenseForType(Type type) {
+        return this.damageReductionAmountArray[type.getSlot().getIndex()];
     }
 
     @Override
