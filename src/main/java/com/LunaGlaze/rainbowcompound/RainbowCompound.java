@@ -69,9 +69,10 @@ public class RainbowCompound {
 
         // 联动内容注册
         if(isCuriousElytraLoaded) {
-            CuriosElytra.init(modEventBus, forgeEventBus);
-            CuriosElytraItemRegistry.ITEMS.register(modEventBus);
-            RainbowcompoundTab.isCuriousElytraLoaded = true;
+            // 这个联动有问题，先注释了
+            // CuriosElytra.init(modEventBus, forgeEventBus);
+            // CuriosElytraItemRegistry.ITEMS.register(modEventBus);
+            // RainbowcompoundTab.isCuriousElytraLoaded = true;
         } else {
             ElytraItemRegistry.ITEMS.register(modEventBus);
         }
@@ -80,7 +81,7 @@ public class RainbowCompound {
             RainbowcompoundTab.isFarmersDelightLoaded = true;
         }
         if(isCreateCraftAddLoaded) {
-            // 这个联动有问题，先注释了
+            // 同上
             // CCAItemRegistry.ITEMS.register(registerEventBus);
             // RainbowcompoundTab.isCreateCraftAddLoaded = true;
             RainbowcompoundTab.isCreateCraftAddLoaded = false;
