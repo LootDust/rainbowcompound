@@ -4,7 +4,6 @@ import com.LunaGlaze.rainbowcompound.Core.Curios.Curios;
 import com.LunaGlaze.rainbowcompound.Core.Date.KeyBoard.ElytraFlyKey;
 import com.LunaGlaze.rainbowcompound.Core.Date.LunaConfig;
 import com.LunaGlaze.rainbowcompound.Core.Tab.RainbowcompoundTab;
-import com.LunaGlaze.rainbowcompound.Linkage.createaddition.CCAItemRegistry;
 import com.LunaGlaze.rainbowcompound.Linkage.elytraslot.CuriosElytra;
 import com.LunaGlaze.rainbowcompound.Linkage.farmersdelight.farmersdelightItemRegistry;
 import com.LunaGlaze.rainbowcompound.Projects.Effect.EffectRegistry;
@@ -43,56 +42,67 @@ public class RainbowCompound {
     public static boolean isCuriousElytraLoaded = false;
     public static boolean isCreateCraftAddLoaded = false;
 
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(LunaUtils.MOD_ID);
+
     public RainbowCompound(){
-        IEventBus registerEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        // 事件总线获取
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
+
+        // 联动模组加载状态获取
         isFarmersDelightLoaded = ModList.get().isLoaded("farmersdelight");
         isCuriousElytraLoaded = ModList.get().isLoaded("elytraslot");
         isCreateCraftAddLoaded = ModList.get().isLoaded("createaddition");
 
-        onCreate();
-        registerEventBus.addListener(this::addCreative);
+        // 事件注册
+        onCreate(modEventBus);
 
-        FoodsItemRegistry.ITEMS.register(registerEventBus);
-        ItemsItemRegistry.ITEMS.register(registerEventBus);
-        ToolsItemRegistry.ITEMS.register(registerEventBus);
-        ArmorsItemRegistry.ITEMS.register(registerEventBus);
+        // 物品与方块注册
+        FoodsItemRegistry.ITEMS.register(modEventBus);
+        ItemsItemRegistry.ITEMS.register(modEventBus);
+        ToolsItemRegistry.ITEMS.register(modEventBus);
+        ArmorsItemRegistry.ITEMS.register(modEventBus);
+        PropsItemRegistry.ITEMS.register(modEventBus);
+        BlocksBlockRegistry.BLOCKS.register(modEventBus);
+        BlocksItemRegistry.ITEMS.register(modEventBus);
+        EffectRegistry.EFFECTS.register(modEventBus);
+
+        // 联动内容注册
         if(isCuriousElytraLoaded) {
-            CuriosElytra.init(registerEventBus, forgeEventBus);
-            CuriosElytraItemRegistry.ITEMS.register(registerEventBus);
+            CuriosElytra.init(modEventBus, forgeEventBus);
+            CuriosElytraItemRegistry.ITEMS.register(modEventBus);
+            RainbowcompoundTab.isCuriousElytraLoaded = true;
         } else {
-            ElytraItemRegistry.ITEMS.register(registerEventBus);
+            ElytraItemRegistry.ITEMS.register(modEventBus);
         }
-        PropsItemRegistry.ITEMS.register(registerEventBus);
-        BlocksBlockRegistry.BLOCKS.register(registerEventBus);
-        BlocksItemRegistry.ITEMS.register(registerEventBus);
-        EffectRegistry.EFFECTS.register(registerEventBus);
-
         if(isFarmersDelightLoaded) {
-            farmersdelightItemRegistry.ITEMS.register(registerEventBus);
+            farmersdelightItemRegistry.ITEMS.register(modEventBus);
+            RainbowcompoundTab.isFarmersDelightLoaded = true;
         }
         if(isCreateCraftAddLoaded) {
-            CCAItemRegistry.ITEMS.register(registerEventBus);
+            // 这个联动有问题，先注释了
+            // CCAItemRegistry.ITEMS.register(registerEventBus);
+            // RainbowcompoundTab.isCreateCraftAddLoaded = true;
+            RainbowcompoundTab.isCreateCraftAddLoaded = false;
         }
 
-        RainbowcompoundTab.REGISTRY.register(registerEventBus);
+        // 创造模式物品栏注册
+        // 早晚得改成用Registrate，现在先这样吧
+        RainbowcompoundTab.REGISTRY.register(modEventBus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, LunaConfig.COMMON_CONFIG);
 
-        Curios.init(registerEventBus, forgeEventBus);
+        Curios.init(modEventBus, forgeEventBus);
     }
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(LunaUtils.MOD_ID);
-    public static void onCreate() {
-
-        IEventBus modEventBus = FMLJavaModLoadingContext.get()
-                .getModEventBus();
+    public static void onCreate(IEventBus modEventBus) {
 
         REGISTRATE.registerEventListeners(modEventBus);
-
+        modEventBus.addListener(RainbowCompound::addCreative);
         IncompleteItems.register();
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+    // 机械动力隐藏物品创造模式物品栏显示
+    private static void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey()) {
             event.accept(new ItemStack(AllItems.CHROMATIC_COMPOUND.get()));
             event.accept(new ItemStack(AllItems.SHADOW_STEEL.get()));
@@ -102,6 +112,7 @@ public class RainbowCompound {
         }
     }
 
+    // 注册按键
     @Mod.EventBusSubscriber(modid = LunaUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent

@@ -7,5 +7,4 @@ public class OverchargedAlloy extends SimpleFoiledItem {
     public OverchargedAlloy() {
         super(new Properties().rarity(Rarity.UNCOMMON));
     }
-
 }
