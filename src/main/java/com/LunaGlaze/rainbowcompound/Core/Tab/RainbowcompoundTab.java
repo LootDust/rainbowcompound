@@ -15,10 +15,13 @@ import com.LunaGlaze.rainbowcompound.Projects.Items.Tools.ToolsItemRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.lang.reflect.Field;
 
 public class RainbowcompoundTab {
     public static boolean isFarmersDelightLoaded = false;
@@ -33,6 +36,10 @@ public class RainbowcompoundTab {
             .title(Component.translatable("itemGroup.rainbowcompound_group"))
             .displayItems((parameters, output) -> {
                 // Basics
+                for (RegistryObject<Item> item:LunaUtils.getItemRegistries(ItemsItemRegistry.class)) {
+                    output.accept(new ItemStack((ItemLike)item.get()));
+                }
+                /*
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.rainbowcompound.get()));
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.blazeiteingot.get()));
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.chorusiteingot.get()));
@@ -58,15 +65,24 @@ public class RainbowcompoundTab {
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.polishedenderquartz.get()));
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.netherstaringot.get()));
                 output.accept(new ItemStack((ItemLike)ItemsItemRegistry.obsidianiteupgradekit.get()));
-                output.accept(new ItemStack((ItemLike)ItemsItemRegistry.rainbowupgradekit.get()));
+                output.accept(new ItemStack((ItemLike)ItemsItemRegistry.rainbowupgradekit.get()));*/
                 // Foods
+                for (RegistryObject<Item> item:LunaUtils.getItemRegistries(FoodsItemRegistry.class)) {
+                    output.accept(new ItemStack((ItemLike)item.get()));
+                }/*
                 output.accept(new ItemStack((ItemLike)FoodsItemRegistry.rainbowapple.get()));
-                output.accept(new ItemStack((ItemLike)FoodsItemRegistry.honeyedporkchop.get()));
+                output.accept(new ItemStack((ItemLike)FoodsItemRegistry.honeyedporkchop.get()));*/
                 // Props
+                for (RegistryObject<Item> item:LunaUtils.getItemRegistries(PropsItemRegistry.class)) {
+                    output.accept(new ItemStack((ItemLike)item.get()));
+                }/*
                 output.accept(new ItemStack((ItemLike)PropsItemRegistry.homemagicmirror.get()));
                 output.accept(new ItemStack((ItemLike)PropsItemRegistry.shadowring.get()));
-                output.accept(new ItemStack((ItemLike)PropsItemRegistry.radiancering.get()));
+                output.accept(new ItemStack((ItemLike)PropsItemRegistry.radiancering.get()));*/
                 // Tools
+                for (RegistryObject<Item> item:LunaUtils.getItemRegistries(ToolsItemRegistry.class)) {
+                    output.accept(new ItemStack((ItemLike)item.get()));
+                }/*
                 output.accept(new ItemStack((ItemLike)ToolsItemRegistry.obsidianitesword.get()));
                 output.accept(new ItemStack((ItemLike)ToolsItemRegistry.obsidianiteaxe.get()));
                 output.accept(new ItemStack((ItemLike)ToolsItemRegistry.obsidianitepickaxe.get()));
@@ -83,8 +99,11 @@ public class RainbowcompoundTab {
                 output.accept(new ItemStack((ItemLike)ToolsItemRegistry.shadowsteelpickaxe.get()));
                 output.accept(new ItemStack((ItemLike)ToolsItemRegistry.shadowsteelshovel.get()));
                 output.accept(new ItemStack((ItemLike)ToolsItemRegistry.shadowsteelmattock.get()));
-                output.accept(new ItemStack((ItemLike)ToolsItemRegistry.refinedradiancescythes.get()));
+                output.accept(new ItemStack((ItemLike)ToolsItemRegistry.refinedradiancescythes.get()));*/
                 // Armors
+                for (RegistryObject<Item> item:LunaUtils.getItemRegistries(ArmorsItemRegistry.class)) {
+                    output.accept(new ItemStack((ItemLike)item.get()));
+                }/*
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.obsidianitehelmet.get()));
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.obsidianitechestplate.get()));
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.obsidianiteleggings.get()));
@@ -92,11 +111,17 @@ public class RainbowcompoundTab {
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowhelmet.get()));
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowchestplate.get()));
                 output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowleggings.get()));
-                output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowboots.get()));
+                output.accept(new ItemStack((ItemLike)ArmorsItemRegistry.rainbowboots.get()));*/
                 // Blocks
-                output.accept(new ItemStack((ItemLike)BlocksItemRegistry.refinedradianceneonitem.get()));
+                for (RegistryObject<Item> item:LunaUtils.getItemRegistries(BlocksItemRegistry.class)) {
+                    output.accept(new ItemStack((ItemLike)item.get()));
+                }/*
+                output.accept(new ItemStack((ItemLike)BlocksItemRegistry.refinedradianceneonitem.get()));*/
                 // Farmers' Delight Linkage
                 if (isFarmersDelightLoaded) {
+                    for (RegistryObject<Item> item:LunaUtils.getItemRegistries(farmersdelightItemRegistry.class)) {
+                        output.accept(new ItemStack((ItemLike) item.get()));
+                    }/*
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.obsidianiteknife.get()));
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.shadowsteelknife.get()));
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.refinedradianceknife.get()));
@@ -105,10 +130,13 @@ public class RainbowcompoundTab {
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.refinedradiancetea.get()));
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.goldenapplestew.get()));
                     output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.enchantedgoldenapplestew.get()));
-                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.rainbowapplestew.get()));
+                    output.accept(new ItemStack((ItemLike)farmersdelightItemRegistry.rainbowapplestew.get()));*/
                 }
                 // Curios Linkage
                 if (isCuriousElytraLoaded) {
+                    for (RegistryObject<Item> item:LunaUtils.getItemRegistries(CuriosElytraItemRegistry.class)) {
+                        output.accept(new ItemStack((ItemLike) item.get()));
+                    }/*
                     output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.obsidianiteelytra.get()));
                     output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_rainbow.get()));
                     output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_feather.get()));
@@ -118,8 +146,11 @@ public class RainbowcompoundTab {
                     output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_slime.get()));
                     output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_ender.get()));
                     output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_66ccff.get()));
-                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_flandre.get()));
+                    output.accept(new ItemStack((ItemLike)CuriosElytraItemRegistry.dynamicelytra_flandre.get()));*/
                 } else {
+                    for (RegistryObject<Item> item:LunaUtils.getItemRegistries(ElytraItemRegistry.class)) {
+                        output.accept(new ItemStack((ItemLike) item.get()));
+                    }/*
                     output.accept(new ItemStack((ItemLike)ElytraItemRegistry.obsidianiteelytra.get()));
                     output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_rainbow.get()));
                     output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_feather.get()));
@@ -129,11 +160,14 @@ public class RainbowcompoundTab {
                     output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_slime.get()));
                     output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_ender.get()));
                     output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_66ccff.get()));
-                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_flandre.get()));
+                    output.accept(new ItemStack((ItemLike)ElytraItemRegistry.dynamicelytra_flandre.get()));*/
                 }
                 // Create Additions Linkage
                 if (isCreateCraftAddLoaded) {
-                    output.accept(new ItemStack((ItemLike)CCAItemRegistry.overchargedalloy.get()));
+                    for (RegistryObject<Item> item:LunaUtils.getItemRegistries(CCAItemRegistry.class)) {
+                        output.accept(new ItemStack((ItemLike) item.get()));
+                    }/*
+                    output.accept(new ItemStack((ItemLike)CCAItemRegistry.overchargedalloy.get()));*/
                 }
             })
             .build()

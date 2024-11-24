@@ -1,12 +1,14 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Tools;
 
+import com.LunaGlaze.rainbowcompound.Core.Registries.BaseRegistry;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ToolsItemRegistry {
+public class ToolsItemRegistry extends BaseRegistry {
+
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LunaUtils.MOD_ID);
     public static final RegistryObject<Item> obsidianitebow = ITEMS.register("obsidianite_bow",ObsidianiteBow::new);
     public static final RegistryObject<Item> obsidianitesword = ITEMS.register("obsidianite_sword",ObsidianiteSword::new);

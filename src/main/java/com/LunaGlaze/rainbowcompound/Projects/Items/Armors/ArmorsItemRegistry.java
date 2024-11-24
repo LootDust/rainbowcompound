@@ -2,6 +2,7 @@ package com.LunaGlaze.rainbowcompound.Projects.Items.Armors;
 
 import com.LunaGlaze.rainbowcompound.Core.ArmorMaterials.CRCArmorItem;
 import com.LunaGlaze.rainbowcompound.Core.ArmorMaterials.CRCArmorMaterials;
+import com.LunaGlaze.rainbowcompound.Core.Registries.BaseRegistry;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem.Type;
@@ -11,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ArmorsItemRegistry {
+public class ArmorsItemRegistry extends BaseRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LunaUtils.MOD_ID);
     public static final RegistryObject<Item> obsidianitehelmet = ITEMS.register("obsidianite_helmet", () ->
             new CRCArmorItem(CRCArmorMaterials.Obsidianite, Type.HELMET, (new Item.Properties().fireResistant())));

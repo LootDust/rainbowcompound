@@ -1,12 +1,14 @@
 package com.LunaGlaze.rainbowcompound.Projects.Items.Basic;
 
+import com.LunaGlaze.rainbowcompound.Core.Registries.BaseRegistry;
 import com.LunaGlaze.rainbowcompound.LunaUtils;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ItemsItemRegistry {
+
+public class ItemsItemRegistry extends BaseRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LunaUtils.MOD_ID);
     public static final RegistryObject<Item> netherstaringot = ITEMS.register("netherstar_ingot",NetherstarIngot::new);
     public static final RegistryObject<Item> rainbowcompound = ITEMS.register("rainbow_compound",RainbowCompound::new);
