@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class CuriosElytraItemRegistry {
+    
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LunaUtils.MOD_ID);
     public static final RegistryObject<Item> obsidianiteelytra = ITEMS.register("obsidianite_elytra", CuriosObsidianiteElytra::new);
     public static final RegistryObject<Item> dynamicelytra_radiance = ITEMS.register("dynamic_elytra_radiance", CuriosDynamicElytra::new);
